@@ -19,10 +19,10 @@ use Illuminate\Support\Facades\Route;
 // });
 
 // return a view
-Route::view('/', 'welcome');        // http://laravel9.test/
-Route::view('/contact', 'contact'); // http://laravel9.test/contact
-Route::view('/blog', 'blog');       // http://laravel9.test/blog
-Route::view('/about', 'about');     // http://laravel9.test/about
+Route::view('/', 'welcome')->name('welcome');          // http://laravel9.test/
+Route::view('/contact', 'contact')->name('contact') ;  // http://laravel9.test/contact
+Route::view('/blog', 'blog')->name('blog');         // http://laravel9.test/blog
+Route::view('/about', 'about')->name('about');       // http://laravel9.test/about
 
 // return a function
 Route::match(['put' , 'patch' ], '/selectMethods' , function () {
