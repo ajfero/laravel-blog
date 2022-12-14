@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Welcome</title>
+        <title>Security</title>
 
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -21,14 +21,19 @@
         </style>
     </head>
     <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-300 sm:items-center py-4 sm:pt-0">
-            <ul>
-                <li><a href="<?= route('welcome')?>">Home</a></li>
-                <li><a href="<?= route('blog')?>">Blog</a></li>
-                <li><a href="<?= route('about')?>">About</a></li>
-                <li><a href="<?= route('contact')?>">Contact</a></li> 
-                <li><a href="<?= route('security')?>">Security</a></li>
-            </ul>
+        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
+            
+            <!--    Nota Problema de Seguridad
+                Si obtenemos un string de la base de datos y esta obtine codigo malicioso para ser mostrado en nuestra vista
+                podriamos tener consecuencias gravez en nuestra seguridad y afectar a la aplicacion.
+                Por lo que debemos asegurarnos de cumplir con el estandar de seguridad.
+            -->
+            <p>
+                <?= " <script>
+                    alert('Security Problem')
+                </script> " ?>
+            </p>
+            
         </div>
     </body>
 </html>
