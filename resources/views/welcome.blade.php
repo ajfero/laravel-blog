@@ -3,7 +3,6 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <title>Welcome</title>
 
         <!-- Fonts -->
@@ -22,13 +21,7 @@
     </head>
     <body class="antialiased">
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-300 sm:items-center py-4 sm:pt-0">
-            <ul>
-                <li><a href="<?= route('welcome')?>">Home</a></li>
-                <li><a href="<?= route('blog')?>">Blog</a></li>
-                <li><a href="<?= route('about')?>">About</a></li>
-                <li><a href="<?= route('contact')?>">Contact</a></li> 
-                <li><a href="<?= route('security')?>">Security</a></li>
-            </ul>
+            @include('partials.navigation')
         </div>
     </body>
 </html>
