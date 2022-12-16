@@ -1,9 +1,4 @@
-@extends('layouts.app')
-
-@section('title','Contact')
-
-@section('content')
-
-    <h1> Contact </h1>
-    
-@endsection
+<x-layouts.app >
+    <x-slot name="title" > Contact </x-slot> 
+    <h1>Contact</h1>
+</x-layouts.app>
