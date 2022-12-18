@@ -5,7 +5,8 @@
     <!-- @dump($posts) -->
     @foreach ( $posts as $post )
         <h3>
-            {{ $post['title'] }}
+            <!-- ahora accedemos al array como si fuera una propiedad -->
+            {{ $post->title }}
         </h3>
     @endforeach
 </x-layouts.app>
