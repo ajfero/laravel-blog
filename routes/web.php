@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\PostController;
+
 /*
 |--------------------------------------------------------------------------
 | variables
@@ -36,17 +38,7 @@ Route::get('/main', function () {
 Route::view('/', 'welcome')->name('welcome');          // http://laravel9.test/
 
 // para los metodos solo se aceptan dos parametros. Puede ser un invocable.
-Route::get('/blog', function(){
-    $posts = [
-        [ 'title' => 'First post' ],
-        [ 'title' => 'Second post' ],
-        [ 'title' => 'Third post' ],
-        [ 'title' => 'Fourth post' ]
-    ];
-
-    // recibe dos parametro, la vista y el dato.
-    return view ('blog', ['posts'=> $posts]);
-})->name('blog');         // http://laravel9.test/blog
+Route::get('/blog', PostController::class)->name('blog');         // http://laravel9.test/blog
 
 
 Route::view('/contact', 'contact')->name('contact') ;  // http://laravel9.test/contact
