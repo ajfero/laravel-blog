@@ -38,7 +38,8 @@ Route::get('/main', function () {
 Route::view('/', 'welcome')->name('welcome');          // http://laravel9.test/
 
 // para los metodos solo se aceptan dos parametros. Puede ser un invocable.
-Route::get('/blog', PostController::class)->name('blog');         // http://laravel9.test/blog
+// Como convencion par mostrar listados es imporatnte que el method se llame index.
+Route::get('/blog', [PostController::class, 'index'])->name('blog');         // http://laravel9.test/blog
 
 
 Route::view('/contact', 'contact')->name('contact') ;  // http://laravel9.test/contact

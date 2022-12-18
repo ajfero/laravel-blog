@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     // controllador invocable cuando usamos el controlador para una sola accion
-    public function __invoke()
+    public function index()
     {
         // return 'blog';
         $posts = [
