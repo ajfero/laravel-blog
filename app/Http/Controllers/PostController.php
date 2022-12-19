@@ -60,11 +60,20 @@ class PostController extends Controller
         // return request();
         
         // tambien podemos recibir los datos como parametro de la funcion
-        return $request;
+        // return $request;
 
         // para acceder a un campo especifico del formulario
         // return $request->input('title');
 
+
+        $post = new Post;
+        $post->title = $request->input('title');
+        $post->body = $request->input('body');
+        $post->save();
+
+        // return redirect()->route('posts.index');
+        // usamos el helper de laravel funciona igual que el anterior.
+        return to_route('posts.index');
     }
 
 }
