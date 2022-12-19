@@ -71,6 +71,10 @@ class PostController extends Controller
         $post->body = $request->input('body');
         $post->save();
 
+        // Los mensajes de session son mensajes que tienen vida util flash por consulta y tienen una sola vida.
+        // Por lo que dirigir un mensaje modificara el html.
+        session()->flash('status', 'Post Created');
+
         // return redirect()->route('posts.index');
         // usamos el helper de laravel funciona igual que el anterior.
         return to_route('posts.index');

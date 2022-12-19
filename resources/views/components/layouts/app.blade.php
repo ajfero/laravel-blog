@@ -10,6 +10,13 @@
 </head>
 <body>
     <x-layouts.navigation/>
+    
+    <!-- Estos mensajes modificaran vuestro html y podra romper la maqueta.
+    por lo que se presentaran solo cuando esten disponibles con esta condicional -->
+    @if (session('status'))
+        <div> {{ session('status') }} </div>
+    @endif
+
     {{$slot}}
 </body>
 </html>

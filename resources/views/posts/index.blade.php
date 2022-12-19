@@ -1,4 +1,8 @@
-<x-layouts.app>
+<x-layouts.app
+    title="Blog"
+    meta-description="blog meta-description" 
+>
+
     <x-slot name="title" > Blog </x-slot> 
     <h1>Blog</h1>
 
