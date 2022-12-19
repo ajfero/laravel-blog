@@ -45,4 +45,14 @@ class PostController extends Controller
         return view('posts.show', ['post' => $post]);
         // tambien le pasamos como parametro a la vista la variable que necesitamos acceder.
     }
+        public function create(Post $post)
+    {
+        return view('posts.create', ['post' => $post]);
+    }
+        public function store(Post $post)
+    {
+        return 'Processed Form';
+        // return route('posts.store', ['post' => $post]);
+    }
+
 }

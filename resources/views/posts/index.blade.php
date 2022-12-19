@@ -1,6 +1,9 @@
 <x-layouts.app>
     <x-slot name="title" > Blog </x-slot> 
     <h1>Blog</h1>
+
+    <a href="{{ route('posts.create') }}">Create Post</a>
+
     <!-- Para inspeccionar los datos que vienen desde la ruta podemos usar dump -->
     <!-- @dump($posts) -->
     @foreach ( $posts as $post )

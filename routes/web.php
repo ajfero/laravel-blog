@@ -45,6 +45,9 @@ Route::view('/', 'welcome')->name('welcome');          // http://laravel9.test/
 Route::get('/blog', [PostController::class, 'index'])->name('posts.index');         // http://laravel9.test/blog
 // Route::get('/blog/1', [PostController::class, 'show']);         // http://laravel9.test/blog
 // Parametros de ruta
+Route::get('/blog/create', [PostController::class, 'create'])->name('posts.create');        // http://laravel9.test/blog
+Route::POST('/blog', [PostController::class, 'store'])->name('posts.store');        // http://laravel9.test/blog
+// las ruta que esperan parametros deberan estar de ultima 
 Route::get('/blog/{post}', [PostController::class, 'show'])->name('posts.show');         // http://laravel9.test/blog
 
 
