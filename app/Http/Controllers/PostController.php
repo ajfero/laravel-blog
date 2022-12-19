@@ -45,14 +45,26 @@ class PostController extends Controller
         return view('posts.show', ['post' => $post]);
         // tambien le pasamos como parametro a la vista la variable que necesitamos acceder.
     }
+
         public function create(Post $post)
     {
         return view('posts.create', ['post' => $post]);
     }
-        public function store(Post $post)
+
+        public function store(Request $request)
     {
-        return 'Processed Form';
-        // return route('posts.store', ['post' => $post]);
+        // Hasta este momento el formulario fue procesado.
+        // return 'Processed Form';
+
+        // para acceder a los datos del formulario, laravel lo convierte directamente en json.
+        // return request();
+        
+        // tambien podemos recibir los datos como parametro de la funcion
+        return $request;
+
+        // para acceder a un campo especifico del formulario
+        // return $request->input('title');
+
     }
 
 }
