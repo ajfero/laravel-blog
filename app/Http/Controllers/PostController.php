@@ -22,4 +22,27 @@ class PostController extends Controller
         // recibe dos parametro, la vista y el dato.
         return view ('blog', ['posts'=> $posts]);
     }
+
+    // podemos recibir el id como parametro de la ruta. 
+    // de esta manera podriamos acceder al registro segun su id
+
+        public function show(Post $post)
+    {
+        // return "detalle del post";
+        // laravel cuando return un objeto los convierte en json
+        // return Post::find($posts);
+        // return Post::findOrFail($posts);
+
+        // usamos Type hint -> como un tipado que te permite verificar si el registro existe 
+        // Verifica segun el modelo dentro de la base de datos si existe un registro.
+        // return $post;
+
+        // segun convecion para mostrar un registro usamos una vista especifica.
+        // y debemos crear un nuevo directorio para no confundirlos.
+        // examples:
+        // user/show.blade.php
+        // post/show.blade.php
+        return view('posts.show', ['post' => $post]);
+        // tambien le pasamos como parametro a la vista la variable que necesitamos acceder.
+    }
 }
