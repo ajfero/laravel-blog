@@ -5,8 +5,8 @@
     <!-- @dump($posts) -->
     @foreach ( $posts as $post )
         <h3>
-            <!-- ahora accedemos al array como si fuera una propiedad -->
-            <a href="/blog/{{ $post->id }}">{{ $post->title }}</a>  
+            <!-- ahora declaramos  la nueva ruta y le pasamos el objeto para que tenga toda la lista de objetos y sus atributos -->
+            <a href="{{ route('posts.show', $post) }}">{{ $post->title }}</a>  
         </h3>
     @endforeach
 </x-layouts.app>

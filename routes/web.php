@@ -42,10 +42,10 @@ Route::view('/', 'welcome')->name('welcome');          // http://laravel9.test/
 
 // index -> listados de recursos
 // show -> detalle de un recurso
-Route::get('/blog', [PostController::class, 'index'])->name('blog');         // http://laravel9.test/blog
+Route::get('/blog', [PostController::class, 'index'])->name('posts.index');         // http://laravel9.test/blog
 // Route::get('/blog/1', [PostController::class, 'show']);         // http://laravel9.test/blog
 // Parametros de ruta
-Route::get('/blog/{post}', [PostController::class, 'show']);         // http://laravel9.test/blog
+Route::get('/blog/{post}', [PostController::class, 'show'])->name('posts.show');         // http://laravel9.test/blog
 
 
 Route::view('/contact', 'contact')->name('contact') ;  // http://laravel9.test/contact

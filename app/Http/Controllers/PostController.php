@@ -20,7 +20,7 @@ class PostController extends Controller
 
 
         // recibe dos parametro, la vista y el dato.
-        return view ('blog', ['posts'=> $posts]);
+        return view ('posts.index', ['posts'=> $posts]);
     }
 
     // podemos recibir el id como parametro de la ruta. 
