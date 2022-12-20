@@ -65,6 +65,15 @@ class PostController extends Controller
         // para acceder a un campo especifico del formulario
         // return $request->input('title');
 
+        // Validations validate([])
+        // Se puede validar con el Objeto recibido request->validations
+        // el methodo validate recibe un array 
+        $request->validate([
+            'title'=>['required'],
+            'body'=>['required'],
+        ]);
+
+
 
         $post = new Post;
         $post->title = $request->input('title');
