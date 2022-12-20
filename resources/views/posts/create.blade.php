@@ -19,11 +19,11 @@
             -->
         <form action="{{ route('posts.store') }}" method="POST">
             @CSRF
-            <label for="Title"> Title <br>
+            <label for="title"> Title <br>
                 <!-- Como el navegador interpreta JS podemos implementar esta validación pero 
                     no es la correcta dado que se puede modificar desde la herramienta de desarrollo del navegador.
                     de igual forma funciona como otra capa de seguridad "required"-->
-                <input name="title" type="text">
+                <input name="title" type="text" value="{{ old('title') }}">
                 <br>
                 <!-- Directiva de blade error interna de laravel, nos permite acceder al error y mostrarlo a traves del mensaje-->
                 @error('title')
@@ -31,8 +31,10 @@
                 @enderror
             </label> <br>
             
-            <label for="Body"> Body <br>
-                <textarea name="body" id="" cols="30" rows="10"> </textarea>
+            <label for="body"> Body <br>
+                <!-- Si llegaramos a tener un error en algunos de los cambios el formulario se resetearia y estaria vacio por lo que
+                usamos la etiqueta value del campo de entrada y le asignamos si anterior valor segun el nombre del campo  -->
+                <textarea name="body" id="" cols="30" rows="10" > {{ old('body') }} </textarea>
                 <br>
                 @error('body')
                     <small style="color: red">{{ $message }}</small>

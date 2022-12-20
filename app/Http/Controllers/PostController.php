@@ -69,7 +69,7 @@ class PostController extends Controller
         // Se puede validar con el Objeto recibido request->validations
         // el methodo validate recibe un array 
         $request->validate([
-            'title'=>['required'],
+            'title'=>['required','min:4'],
             'body'=>['required'],
         ]);
 
