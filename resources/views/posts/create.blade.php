@@ -44,6 +44,6 @@
             <button type="submit">Submit</button><br>
         </form>
 
-    <a href="{{ route('posts.create') }}">Return</a>
+    <a href="{{ route('posts.index') }}">Return</a>
     <br>
 </x-layouts.app>

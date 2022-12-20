@@ -49,6 +49,8 @@ Route::get('/blog/create', [PostController::class, 'create'])->name('posts.creat
 Route::POST('/blog', [PostController::class, 'store'])->name('posts.store');        // http://laravel9.test/blog
 // las ruta que esperan parametros deberan estar de ultima 
 Route::get('/blog/{post}', [PostController::class, 'show'])->name('posts.show');         // http://laravel9.test/blog
+Route::get('/blog/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');         // http://laravel9.test/blog
+Route::patch('/blog/{post}', [PostController::class, 'update'])->name('posts.update');         // http://laravel9.test/blog
 
 
 Route::view('/contact', 'contact')->name('contact') ;  // http://laravel9.test/contact
