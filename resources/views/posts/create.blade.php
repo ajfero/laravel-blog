@@ -8,7 +8,10 @@
     <form action="{{ route('posts.store') }}" method="POST">
         @CSRF
         <label for="Title"> Title <br>
-            <input name="title" type="text">
+            <!-- Como el navegador interpreta JS podemos implementar esta validacion pero 
+                no es la correcta dado que se puede modificar desde la herramienta de desarrollo del navegador.
+                de igual forma funciona como otra capa de seguridad "required"-->
+            <input name="title" type="text" required>
         </label> <br>
 
         <label for="Body"> Body <br>
