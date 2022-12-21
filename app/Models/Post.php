@@ -12,4 +12,8 @@ class Post extends Model
     // change de name of Model for the name of the table
     // protected $table = 'articules';
 
+    // add  to fillable property to allow mass assignment
+    // asignacion masiva.
+    protected $fillable = ['title','body'];
+
 }

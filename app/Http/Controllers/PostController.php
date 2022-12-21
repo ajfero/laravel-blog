@@ -59,21 +59,13 @@ class PostController extends Controller
         // para acceder a un campo especifico del formulario
         // return $request->input('title');
 
-        // Validations validate([])
-        // Se puede validar con el Objeto recibido request->validations
-        // el methodo validate recibe un array 
-        $request->validate([
+        // Create post - refactor
+        $validated = $request->validate([
             'title'=>['required','min:4'],
             'body'=>['required'],
         ]);
-
-        $post = new Post;
-        $post->title = $request->input('title');
-        $post->body = $request->input('body');
-        $post->save();
-
-        // Los mensajes de session son mensajes que tienen vida util flash por consulta y tienen una sola vida.
-        // Por lo que dirigir un mensaje modificara el html.
+        // dd($validated);
+        Post::create($validated);
         session()->flash('status', 'Post Created');
 
         // return redirect()->route('posts.index');
@@ -93,19 +85,15 @@ class PostController extends Controller
         // return if edit post it's ok
         // return 'Edited Post';
 
-        // update post
-        $request->validate([
-            'title'=>['required','min:4'],
-            'body'=>['required'],
-        ]);
-        
         // dado que agregamos el tipo de variables Laravel buscara automaticamente por nosotros en la base de datos y no necesitamos buscar el registro 
         // $post = Post::find($post)
 
-        $post->title = $request->input('title');
-        $post->body = $request->input('body');
-        $post->save();
-
+        // refactor with facade of model a Post with method create.
+        $validated = $request->validate([
+            'title'=>['required','min:4'],
+            'body'=>['required'],
+        ]);
+        $post->update($validated);
         session()->flash('status', 'Post Update');
 
         return view('posts.show', ['post' => $post]);
