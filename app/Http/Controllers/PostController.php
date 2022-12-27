@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 use App\Models\Post;
+use App\Http\requests\SavePostRequest;
 
 class PostController extends Controller
 {
@@ -46,7 +47,7 @@ class PostController extends Controller
         return view('posts.create', ['post' => new Post]);
     }
 
-    public function store(Request $request) {
+    public function store(SavePostRequest $request) {
         // Hasta este momento el formulario fue procesado.
         // return 'Processed Form';
 
@@ -60,17 +61,12 @@ class PostController extends Controller
         // return $request->input('title');
 
         // Create post - refactor
-        $validated = $request->validate([
-            'title'=>['required','min:4'],
-            'body'=>['required'],
-        ]);
-        // dd($validated);
-        Post::create($validated);
-        session()->flash('status', 'Post Created');
+        Post::create($request->validated());
+        // session()->flash('status', 'Post Created');
 
         // return redirect()->route('posts.index');
         // usamos el helper de laravel funciona igual que el anterior.
-        return to_route('posts.index');
+        return to_route('posts.index')->with('status', 'Post Created');
     }
     
     // recibimos el post que deceamos editar enviado desde la vista blog.
@@ -81,7 +77,7 @@ class PostController extends Controller
     }
 
     // recibimos el post que deceamos editar enviado desde la vista blog.
-    public function update(Request $request, Post $post) {
+    public function update(SavePostRequest $request, Post $post) {
         // return if edit post it's ok
         // return 'Edited Post';
 
@@ -89,13 +85,9 @@ class PostController extends Controller
         // $post = Post::find($post)
 
         // refactor with facade of model a Post with method create.
-        $validated = $request->validate([
-            'title'=>['required','min:4'],
-            'body'=>['required'],
-        ]);
-        $post->update($validated);
-        session()->flash('status', 'Post Update');
+        $post->update($request->validated());
+        // session()->flash('status', 'Post Update');
 
-        return view('posts.show', ['post' => $post]);
+        return to_route('posts.show', ['post' => $post])->with('status', 'Post Update');
     }
 }
