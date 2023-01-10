@@ -51,17 +51,18 @@ Route::POST('/blog', [PostController::class, 'store'])->name('posts.store');    
 Route::get('/blog/{post}', [PostController::class, 'show'])->name('posts.show');         // http://laravel9.test/blog
 Route::get('/blog/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');         // http://laravel9.test/blog
 Route::patch('/blog/{post}', [PostController::class, 'update'])->name('posts.update');         // http://laravel9.test/blog
+Route::delete('/blog/{post}', [PostController::class, 'delete'])->name('posts.destroy');         // http://laravel9.test/blog
 
 
-Route::view('/contact', 'contact')->name('contact') ;  // http://laravel9.test/contact
+Route::view('/contact', 'contact')->name('contact');  // http://laravel9.test/contact
 Route::view('/about', 'about')->name('about');       // http://laravel9.test/about
 Route::view('/security', 'security')->name('security');       // http://laravel9.test/about
 
 // return a function
-Route::match(['put' , 'patch' ], '/selectMethods' , function () {
+Route::match(['put', 'patch'], '/selectMethods', function () {
     //
 });
 
-Route::any( '/allMethods' , function () {
+Route::any('/allMethods', function () {
     //
 });

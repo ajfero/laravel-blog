@@ -11,7 +11,8 @@ use App\Http\requests\SavePostRequest;
 class PostController extends Controller
 {
     // controllador invocable cuando usamos el controlador para una sola accion
-    public function index() {
+    public function index()
+    {
         // Import of facade woth method of table get a specific table
         // This method is powerfull becouse it allows white SQL pure with method raw.
         // $posts = DB::raw('posts')->get();
@@ -19,12 +20,13 @@ class PostController extends Controller
         // dado que el Modelo se llama Post -> Eloquent asume que la tabla se llama Post. 
 
         // recibe dos parametro, la vista y el dato.
-        return view ('posts.index', ['posts'=> $posts]);
+        return view('posts.index', ['posts' => $posts]);
     }
 
     // podemos recibir el id como parametro de la ruta. 
     // de esta manera podriamos acceder al registro segun su id
-    public function show(Post $post) {
+    public function show(Post $post)
+    {
         // return "detalle del post";
         // laravel cuando return un objeto los convierte en json
         // return Post::find($posts);
@@ -43,17 +45,19 @@ class PostController extends Controller
         // tambien le pasamos como parametro a la vista la variable que necesitamos acceder.
     }
 
-    public function create() {
+    public function create()
+    {
         return view('posts.create', ['post' => new Post]);
     }
 
-    public function store(SavePostRequest $request) {
+    public function store(SavePostRequest $request)
+    {
         // Hasta este momento el formulario fue procesado.
         // return 'Processed Form';
 
         // para acceder a los datos del formulario, laravel lo convierte directamente en json.
         // return request();
-        
+
         // tambien podemos recibir los datos como parametro de la funcion
         // return $request;
 
@@ -68,26 +72,38 @@ class PostController extends Controller
         // usamos el helper de laravel funciona igual que el anterior.
         return to_route('posts.index')->with('status', 'Post Created');
     }
-    
+
     // recibimos el post que deceamos editar enviado desde la vista blog.
-    public function edit(Post $post) {
+    public function edit(Post $post)
+    {
         // return the post of view blog and database
         // return $post;
         return view('posts.edit', ['post' => $post]);
     }
 
     // recibimos el post que deceamos editar enviado desde la vista blog.
-    public function update(SavePostRequest $request, Post $post) {
+    public function update(SavePostRequest $request, Post $post)
+    {
         // return if edit post it's ok
         // return 'Edited Post';
 
         // dado que agregamos el tipo de variables Laravel buscara automaticamente por nosotros en la base de datos y no necesitamos buscar el registro 
-        // $post = Post::find($post)
+        // $post = Post::find($post);
 
         // refactor with facade of model a Post with method create.
         $post->update($request->validated());
         // session()->flash('status', 'Post Update');
 
         return to_route('posts.show', ['post' => $post])->with('status', 'Post Update');
+    }
+
+    // recibimos el post que deceamos eliminar enviado desde la vista blog.
+    public function delete(Post $post)
+    {
+        // return if Deleted post it's ok
+        // return $post;
+
+        $post->delete();
+        return to_route('posts.index')->with('status', 'Post Deleted');
     }
 }
