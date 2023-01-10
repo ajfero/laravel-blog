@@ -98,7 +98,7 @@ class PostController extends Controller
     }
 
     // recibimos el post que deceamos eliminar enviado desde la vista blog.
-    public function delete(Post $post)
+    public function destroy(Post $post)
     {
         // return if Deleted post it's ok
         // return $post;
