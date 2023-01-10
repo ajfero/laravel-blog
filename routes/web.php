@@ -35,7 +35,7 @@ Route::get('/main', function () {
 })->name('main');
 
 // return a view
-Route::view('/', 'welcome')->name('welcome');          // http://laravel9.test/
+Route::view('/', 'welcome')->name('home');          // http://laravel9.test/
 
 // para los metodos solo se aceptan dos parametros. Puede ser un invocable.
 // Como convencion par mostrar listados es imporatnte que el method se llame index.
