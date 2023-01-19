@@ -76,3 +76,10 @@ Route::match(['put', 'patch'], '/selectMethods', function () {
 Route::any('/allMethods', function () {
     //
 });
+
+// show how function the middleware auth
+// Route::view('/about', 'about')->name('about')->middleware('auth');               // http://laravel9.test/about with authentication
+
+Route::get('/login', function () {
+    return 'Login Page';
+})->name('login');

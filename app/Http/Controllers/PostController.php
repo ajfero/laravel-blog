@@ -10,6 +10,16 @@ use App\Http\requests\SavePostRequest;
 
 class PostController extends Controller
 {
+    // create a controller for 
+    public function __construct()
+    {
+        // apply Only to this methods
+        // $this->middleware('auth', ['only' => ['create', 'store', 'edit', 'update', 'destroy']]);
+
+        // apply Except to this methods
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+    }
+
     // controllador invocable cuando usamos el controlador para una sola accion
     public function index()
     {
