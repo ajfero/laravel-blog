@@ -10,17 +10,17 @@
     @vite(['resources/css/app.scss','resources/js/app.js'])
 </head>
 
-<body>
+<body class="antialiased bg-slate-100 dark:bg-slate-900">
     <!-- <h1 class="text-3xl text-blue-500 font-bold underline">
-        Hello world!
-    </h1> -->
+            Hello world!
+        </h1> -->
 
     <x-layouts.navigation />
 
     <!-- Estos mensajes modificaran vuestro html y podra romper la maqueta.
-    por lo que se presentaran solo cuando esten disponibles con esta condicional -->
+        por lo que se presentaran solo cuando esten disponibles con esta condicional -->
     @if (session('status'))
-    <div> {{ session('status') }} </div>
+    <div class="max-w-screen-xl px-3 py-2 mx-auto font-bold text-white sm:px-6 lg:px-8 bg-emerald-500 dark:bg-emerald-700"> {{ session('status') }} </div>
     @endif
 
     {{$slot}}
