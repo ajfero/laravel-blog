@@ -1,7 +1,8 @@
-<nav class="w-screen overflow-scroll bg-white border-b dark:bg-slate-900 border-slate-900/10 lg:px-8 dark:border-slate-300/10 lg:mx-0">
+<nav class="w-screen bg-white border-b dark:bg-slate-900 border-slate-900/10 lg:px-8 dark:border-slate-300/10 lg:mx-0">
     <div class="px-4 mx-auto max-w-7xl sm:px-16 lg:px-20">
         <div class="relative flex items-center justify-between h-16">
             <div class="flex items-center justify-center flex-1 sm:items-stretch sm:justify-start">
+                <!-- logo -->
                 <div class="flex items-center flex-shrink-0">
                     <a href="{{ route('home') }}">
                         <svg class="w-8 h-8 text-sky-500" fill="none" width="0" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -13,6 +14,7 @@
                         </svg>
                     </a>
                 </div>
+                <!-- nav -->
                 <div class="mx-auto">
                     <div class="flex space-x-4">
                         <a href="{{ route('home') }}" class="px-3 py-2 text-sm font-medium rounded-md hover:text-sky-600 dark:hover:text-white {{ request()->routeIs('home') ? 'text-sky-600 dark:text-white' : 'text-slate-400' }}">
@@ -29,6 +31,7 @@
                         </a>
                     </div>
                 </div>
+                <!-- auth -->
                 <div class="ml-auto">
                     <div class="flex space-x-4">
                         @guest
