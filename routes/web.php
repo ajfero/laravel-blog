@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\AuthenticatedSessionController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PostController;
@@ -80,6 +82,15 @@ Route::any('/allMethods', function () {
 // show how function the middleware auth
 // Route::view('/about', 'about')->name('about')->middleware('auth');               // http://laravel9.test/about with authentication
 
-Route::get('/login', function () {
-    return 'Login Page';
-})->name('login');
+// Route::get('/login', function () {
+//     return 'Login Page';
+// })->name('login');
+
+// login
+Route::view('/login', 'auth.login')->name('login');
+Route::post('/login', [AuthenticatedSessionController::class, 'store']);
+Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+
+// register
+Route::view('/register', 'auth.register')->name('register');
+Route::post('/register', [RegisteredUserController::class, 'store'])->name('register');
