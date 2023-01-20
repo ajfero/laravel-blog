@@ -2,9 +2,10 @@
 
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\AuthenticatedSessionController;
+use App\Http\Controllers\PostController;
+
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,9 +33,9 @@ use App\Http\Controllers\PostController;
 // });
 
 // http://laravel9.test/main
-Route::get('/main', function () {
-    return view('main');
-})->name('main');
+// Route::get('/main', function () {
+//     return view('main');
+// })->name('main');
 
 // return a view
 Route::view('/', 'welcome')->name('home');          // http://laravel9.test/
@@ -71,9 +72,9 @@ Route::view('/about', 'about')->name('about');               // http://laravel9.
 Route::view('/security', 'security')->name('security');
 
 // return a function
-Route::match(['put', 'patch'], '/selectMethods', function () {
-    //
-});
+// Route::match(['put', 'patch'], '/selectMethods', function () {
+//     //
+// });
 
 Route::any('/allMethods', function () {
     //
@@ -93,4 +94,4 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name
 
 // register
 Route::view('/register', 'auth.register')->name('register');
-Route::post('/register', [RegisteredUserController::class, 'store'])->name('register');
+Route::post('/register', [RegisteredUserController::class, 'store']);

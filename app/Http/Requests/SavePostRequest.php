@@ -20,7 +20,7 @@ class SavePostRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, mixed>
+     * @return array
      */
     public function rules()
     {
@@ -36,8 +36,8 @@ class SavePostRequest extends FormRequest
         // validations rules
         return [
             //  
-            'title'=>['required','min:4'],
-            'body'=>['required'],
+            'title' => ['required', 'min:4'],
+            'body' => ['required'],
         ];
     }
 }

@@ -26,7 +26,7 @@
             <label class="flex items-center">
                 <input class="border rounded dark:bg-slate-900 dark:border-slate-800 border-slate-300 dark:border-slate-700 text-sky-700 focus:border-sky-300 focus:ring focus:ring-slate-300 dark:focus:ring-slate-800 focus:ring-opacity-50" name="remember" type="checkbox">
                 <span class="cursor-pointer ml-2 font-serif text-slate-600 dark:text-slate-400">
-                    Recuérdame
+                    Remember me
                 </span>
             </label>
         </div>
