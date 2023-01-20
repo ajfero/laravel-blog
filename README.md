@@ -1,3 +1,8 @@
+ This is a block created based on aprendible.com course!
+ Link -> https://www.youtube.com/watch?v=wZYySlQzfvM&list=PLpKWS6gp0jd_xJyvkbDzoMQLQc-qyFQAE
+ Curso Fundamentos de Laravel 9, Laravel desde cero
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
