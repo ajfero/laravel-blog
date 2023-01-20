@@ -6,6 +6,7 @@
         @csrf
 
         <div class="space-y-4">
+            <!-- name -->
             <label class="flex flex-col">
                 <span class="font-serif text-slate-600 dark:text-slate-400">
                     Name
@@ -15,6 +16,7 @@
                 <small class="font-bold text-red-500/80">{{ $message }}</small>
                 @enderror
             </label>
+            <!-- email -->
             <label class="flex flex-col">
                 <span class="font-serif text-slate-600 dark:text-slate-400">
                     Email
@@ -24,6 +26,7 @@
                 <small class="font-bold text-red-500/80">{{ $message }}</small>
                 @enderror
             </label>
+            <!-- password -->
             <label class="flex flex-col">
                 <span class="font-serif text-slate-600 dark:text-slate-400">
                     Password
@@ -33,6 +36,7 @@
                 <small class="font-bold text-red-500/80">{{ $message }}</small>
                 @enderror
             </label>
+            <!-- password_confirmation -->
             <label class="flex flex-col">
                 <span class="font-serif text-slate-600 dark:text-slate-400">
                     Password Confirmation
